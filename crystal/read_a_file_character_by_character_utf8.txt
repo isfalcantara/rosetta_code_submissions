@@ -1,13 +1,15 @@
 =={{header|Crystal}}==
 {{trans|Ruby}}
 
-<lang ruby>File.open("input.txt", encoding: "UTF-8") do |file|
+The encoding is UTF-8 by default, but it can be explicitly specified.
+
+<lang ruby>File.open("input.txt") do |file|
   file.each_char { |c| p c }
 end</lang>
 
 or
 
-<lang ruby>File.open("input.txt", encoding: "UTF-8") do |file|
+<lang ruby>File.open("input.txt") do |file|
   while c = file.read_char
     p c
   end
