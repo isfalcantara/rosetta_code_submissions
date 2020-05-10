@@ -1,0 +1,14 @@
+=={{header|Crystal}}==
+{{trans|Ruby}}
+
+<lang ruby>File.open("input.txt", encoding: "UTF-8") do |file|
+  file.each_char { |c| p c }
+end</lang>
+
+or
+
+<lang ruby>File.open("input.txt", encoding: "UTF-8") do |file|
+  while c = file.read_char
+    p c
+  end
+end</lang>
