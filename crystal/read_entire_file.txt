@@ -1,0 +1,28 @@
+=={{header|Crystal}}==
+The simplest way to read an entire file to a string is by using File.read:
+
+<lang ruby>content = File.read("input.txt")
+puts content</lang>
+
+{{out}}
+<pre>Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam.</pre>
+
+The encoding can also be specified:
+
+<lang ruby>content = File.read("input.txt", "UTF-16")</lang>
+
+or
+
+<lang ruby>content = File.read("input.txt", encoding: "UTF-16")</lang>
+
+File.open allows for more options and closes the file implicitly. Combine it with File#gets_to_end to read the entire file:
+
+<lang ruby>content = File.open("input.txt", mode: "r", encoding: "UTF-8") do |file|
+  file.gets_to_end
+end</lang>
+
+Or no implicit closing at all with File.new:
+
+<lang ruby>file = File.new("input.txt", mode: "r", encoding: "UTF-8")
+content = file.gets_to_end
+file.close</lang>
